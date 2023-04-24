@@ -4,3 +4,5 @@ requests
 numpy
 xgboost
 scikit-learn
+pillow
+pandas
