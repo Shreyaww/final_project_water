@@ -105,15 +105,15 @@
 </style>
 <body>
     <h1>Normal Users</h1>
-    <form onsubmit="validate()" action="/predict.html" method="get" class="popup">
+    <form action="{{ url_for('naive') }}" method="POST" class="popup">
         <div class="popup-content">
-            <img src="img/user.png" alt="User">
+            <img src="static/images/user.png" alt="User">
 
             <select id="f1" name="state">
                 <option value="">Choose Your State</option>
-                <option value="Maharashtra">MAHARASHTRA</option>
-                <option value="Kerala">KERALA</option>
-                <option value="Goa">GOA</option>
+                <option value="MAHARASHTRA">MAHARASHTRA</option>
+                <option value="KERALA">KERALA</option>
+                <option value="GOA">GOA</option>
                 <option value="MEGHALAYA">MEGHALAYA</option>
                 <option value="MANIPUR">MANIPUR</option>
                 <option value="PUNJAB">PUNJAB</option>
@@ -122,11 +122,17 @@
                 <option value="MIZORAM">MIZORAM</option>
             </select>
 
-            <input type="number" placeholder="Temperature" id="f3">
+            <input type="number" placeholder="Temperature" id="f3" name="temp">
 
-            <button class="btn" onclick="validate()">Predict Quality</button>
+            <button class="btn" >Predict Quality</button>
+            {% if result %}
+            <p>State: {{state}}</p>
+            <p>Temperature: {{temp}}</p>
+            <p>Result</p>
+                <p>{{result}}</p>
+            {% endif %}           
         </div>
     </form>
-    <script src="script.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>

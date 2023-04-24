@@ -191,18 +191,18 @@
 <body>
     <!-- Researchers -->
     <h1>Researchers</h1>
-    <form onsubmit="validate()" action="/predict.html" method="get" class="popup">
+    <form action="{{ url_for('researchers') }}" method="POST" class="popup">
         <div class="popup-content">
             <!-- <img src="img/close.png" alt="closeBtn" class="close" id="close_btn"> -->
-            <img src="img/user.png" alt="User">
+            <img src="static/images/user.png" alt="User">
 
             <!-- <input type="number" placeholder="State" min="1" max=100 id="f1"> -->
             <!-- <label for="state">Choose Your State</label> <br> -->
             <select id="f1" name="state">
                 <option value="">Choose Your State</option>
-                <option value="Maharashtra">MAHARASHTRA</option>
-                <option value="Kerala">KERALA</option>
-                <option value="Goa">GOA</option>
+                <option value="MAHARASHTRA">MAHARASHTRA</option>
+                <option value="KERALA">KERALA</option>
+                <option value="GOA">GOA</option>
                 <option value="MEGHALAYA">MEGHALAYA</option>
                 <option value="MANIPUR">MANIPUR</option>
                 <option value="PUNJAB">PUNJAB</option>
@@ -229,16 +229,26 @@ TAMIL NADU -->
 
             <!-- <input type="range" name="temp" min="10" max="50" value="1" id="f2" class="slider">
             <p> Temperature : <span id="value"></span></p> -->
-            <input type="number" placeholder="Temperature" id="f3">
+            <input type="number" placeholder="Temperature" id="f3" name="temp">
 
-            <input type="number" placeholder="DO (mg/l)" id="f3">
-            <input type="number" placeholder="PH" id="f4">
-            <input type="number" placeholder="BOD" id="f5">
-            <input type="number" placeholder="NI" id="f6">
+            <input type="number" placeholder="DO (mg/l)" id="f3" name="do">
+            <input type="number" placeholder="PH" id="f4" name="ph">
+            <input type="number" placeholder="BOD" id="f5" name="bod">
+            <input type="number" placeholder="NI" id="f6" name="ni">
 
-            <button class="btn" onclick="validate()">Predict Quality</button>
+            <button class="btn" >Predict Quality</button>
+            {% if result %}
+            <p>State: {{state}}</p>
+            <p>Temperature: {{temp}}</p>
+            <p>do: {{do}}</p>
+            <p>Ph: {{ph}}</p>
+            <p>bod: {{bod}}</p>
+            <p>ni: {{ni}}</p>
+            <p>Result</p>
+                <p>{{result}}</p>
+            {% endif %}
         </div>
     </form>
-    <script src="script.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>

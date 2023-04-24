@@ -17,11 +17,11 @@ function validate() {
 }
 
 function redirectToForm1() {
-    window.location.href = "form1.html";
+    window.location.href = "/form1";
 }
 
 function redirectToForm2() {
-    window.location.href = "auth.html";
+    window.location.href = "/auth";
 }
 
 const predictBtn = document.getElementById('btn_predict');
