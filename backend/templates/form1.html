@@ -18,7 +18,7 @@
     }
 
     .popup-content {
-        height: 400px;
+        height: 600px;
         width: 800px;
         background: white;
         padding: 50px;
@@ -101,6 +101,11 @@
         margin-left: 71px;
         text-transform: uppercase;
     }
+    p{
+        font-size: 20px;
+        font-family: 'Baloo Thambi 2';
+        font-weight: bold; 
+    }
     
 </style>
 <body>
@@ -110,7 +115,6 @@
             <img src="static/images/user.png" alt="User">
 
             <select id="f1" name="state">
-                <option value="">Choose Your State</option>
                 <option value="MAHARASHTRA">MAHARASHTRA</option>
                 <option value="KERALA">KERALA</option>
                 <option value="GOA">GOA</option>
@@ -120,6 +124,19 @@
                 <option value="TAMILNADU">TAMILNADU</option>
                 <option value="GUJARAT">GUJARAT</option>
                 <option value="MIZORAM">MIZORAM</option>
+                <option value="ODISHA">ODISHA</option>
+                <option value="KARNATAKA">KARNATAKA</option>
+                <option value="RAJASTHAN">RAJASTHAN</option>
+                <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                <option value="HARYANA">HARYANA</option>
+                <option value="ORISSA">ORISSA</option>
+                <option value="HARYANA">HARYANA</option>
+                <option value="PONDICHERRY">PONDICHERRY</option>
+                <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                <option value="DAMAN & DIU">DAMAN & DIU</option>
+                <option value="DAMAN, DIU, DADRA NAGAR HAVELI">DAMAN, DIU, DADRA NAGAR HAVELI</option>
+                <option value="CHANDIGARH">CHANDIGARH</option>
+                <option value="MADHYA PRADESH">MADHYA PRADESH</option>
             </select>
 
             <input type="number" placeholder="Temperature" id="f3" name="temp">
@@ -128,7 +145,7 @@
             {% if result %}
             <p>State: {{state}}</p>
             <p>Temperature: {{temp}}</p>
-            <p>Result</p>
+            <p>Result : </p>
                 <p>{{result}}</p>
             {% endif %}           
         </div>
