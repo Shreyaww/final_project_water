@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+<style>
+    body {
+        width: 90%;
+        height: 75vh;
+        padding: 32px;
+        margin: 47px;
+        border-radius: 20px;
+        box-shadow: 3px 5px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background-color: #6aaca9; */
+
+    }
+
+    input {
+        width: 70%;
+        margin: 10px 0;
+        border-radius: 5px;
+        overflow: hidden;
+
+    }
+
+    input {
+        width: 50%;
+        height: 120px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 0px 10px;
+        font-size: 20px;
+        color: #444;
+    }
+
+    #signUp,
+    #login {
+        padding: 6px 20px;
+        border: 2px solid white;
+        background-color: brown;
+        color: white;
+        margin: 17px;
+        font-size: 1.3rem;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 129px;
+        height: 94px;
+        margin: 7px auto;
+        text-align: center;
+    }
+
+    #signUp:hover,
+    #login:hover {
+        /* background-color: burlywood;
+        transition: all 0.3s ease; */
+        background-color: burlywood;
+        border: 2px solid burlywood;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=email]:hover,
+    input[type=email]:focus,
+    input[type=name]:hover,
+    input[type=name]:focus,
+    input[type=password]:hover,
+    input[type=password]:focus {
+        border: 2px solid #8d8d8d;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    ::placeholder {
+        font-size: 16px;
+    }
+
+    .h-primary {
+        font-family: cursive;
+        font-size: 2.8rem;
+        padding: 12px;
+    }
+
+
+    input[type="submit"] {
+        color: pink;
+    }
+
+    button {
+        width: 100px;
+        height: 40px;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="h-primary center">
+        Enter Your Credentials
+    </h1>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label for="name">Name:</label>
+    <input type="name" id="name" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br>
+
+    <input type="submit" value="Register" id="signUp">
+    <input type="submit" value="Login" id="login">
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyANE600RQABaRdyCtOgKhDKwgIx3nOOPXc",
+        authDomain: "authentication-app-92e84.firebaseapp.com",
+        databaseURL: "https://authentication-app-92e84-default-rtdb.firebaseio.com",
+        projectId: "authentication-app-92e84",
+        storageBucket: "authentication-app-92e84.appspot.com",
+        messagingSenderId: "97720283430",
+        appId: "1:97720283430:web:7c6f3aec0613de939751e7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    signUp.addEventListener('click', (e) => {
+
+        var email = document.getElementById('email').value;
+        var uname = document.getElementById('name').value;
+        var pass = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                set(ref(database, 'users/' + user.uid), {
+                    uname: uname,
+                    email: email
+                })
+                alert('user created')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert(errorMessage);
+            });
+    })
+
+    login.addEventListener('click', (e) => {
+        var email = document.getElementById('email').value;
+        var uname = document.getElementById('name').value;
+
+        signInWithEmailAndPassword(auth, email, password.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                const dt = new Date();
+                update(ref(database, 'users/' + user.uid), {
+                    last_login: dt
+                })
+
+                window.location.href = "form2.html";
+                alert('User Logged in!')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    })
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const uid = user.uid;
+        } else {
+        }
+    });
+
+    logout.addEventListener('click', (e) => {
+        signOut(auth).then(() => {
+            alert('User sign out!')
+            // Sign-out successful.
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    })
+</script>
+</html>

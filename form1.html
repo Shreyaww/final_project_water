@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+    <title>Researchers</title>
+</head>
+<style>
+    body {
+        background-color: #6aaca9;
+    }
+
+    .popup {
+        display: flex;
+        justify-content: center;
+    }
+
+    .popup-content {
+        height: 400px;
+        width: 800px;
+        background: white;
+        padding: 50px;
+        border-radius: 5px;
+        position: relative;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .popup-content img {
+        width: 10%;
+    }
+
+    .popup-content a {
+        text-decoration: none;
+    }
+
+    input {
+        margin: 20px auto;
+        display: block;
+        width: 80%;
+        padding: 8px;
+        border: 1px solid brown;
+        font-size: medium;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: burlywood;
+    }
+
+    .btn {
+        padding: 6px 20px;
+        border: 2px solid white;
+        background-color: brown;
+        color: white;
+        margin: 17px;
+        font-size: 1.3rem;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 2px #d6d1d1;
+        font-family: 'Baloo Thambi 2';
+    }
+
+    #f1 {
+        cursor: pointer;
+    }
+
+    select {
+        display: block;
+        width: 82%;
+        padding: 9px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        margin-left: 71px;
+        text-transform: uppercase;
+    }
+    
+</style>
+<body>
+    <h1>Normal Users</h1>
+    <form onsubmit="validate()" action="/predict.html" method="get" class="popup">
+        <div class="popup-content">
+            <img src="img/user.png" alt="User">
+
+            <select id="f1" name="state">
+                <option value="">Choose Your State</option>
+                <option value="Maharashtra">MAHARASHTRA</option>
+                <option value="Kerala">KERALA</option>
+                <option value="Goa">GOA</option>
+                <option value="MEGHALAYA">MEGHALAYA</option>
+                <option value="MANIPUR">MANIPUR</option>
+                <option value="PUNJAB">PUNJAB</option>
+                <option value="TAMILNADU">TAMILNADU</option>
+                <option value="GUJARAT">GUJARAT</option>
+                <option value="MIZORAM">MIZORAM</option>
+            </select>
+
+            <input type="number" placeholder="Temperature" id="f3">
+
+            <button class="btn" onclick="validate()">Predict Quality</button>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

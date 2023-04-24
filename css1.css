@@ -1,0 +1,14 @@
+body{
+    background: rgb(152, 194, 194);
+}
+#head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-size: 1.3rem;
+    background-color: rgb(224, 211, 211);
+    border: 2px solid brown;
+    border-radius: 10px;
+    padding: 10px;
+}

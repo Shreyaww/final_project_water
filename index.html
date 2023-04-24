@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css.css">
+    <link rel="stylesheet" media="screen and (max-width: 870px)" href="phone.css">
+    <title>Detect The Quality Of Water Coming at Your Home | WaterQualityDetection</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/logo.png" alt="WaterQualityDetection">
+        </div>
+
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services-container">Scope</a></li>
+            <li class="item"><a href="#client-section">Quality Detector</a></li>
+            <li class="item"><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary">
+            Water Quality Prediction
+        </h1>
+        <p>The project aims to prepare a Model to predict the quality of water using factors like hardness, pH value,
+            dissolved solids, chloramines, sulfate, carbon, etc and tell us whether the water is safe to drink or not.
+        </p>
+
+        <button class="btn" id="btn_predict">Predict Water Quality Now</button>
+        <button class="btn" id="btn_predict1" onclick="redirectToForm1()">Naive Users</button>
+        <button class="btn" id="btn_predict2" onclick="redirectToForm2()">Researchers</button>
+        
+    </section>
+
+    <section id="services-container">
+        <h1 class="h-primary center">
+            Scope
+        </h1>
+        <div id="services">
+            <div class="box">
+                <img src="img/farmers-4897451_640.jpg" alt="">
+
+                <div class="contact-btn">
+                    <button class="btn">For The Citizens</button>
+                </div>
+           
+                <p class="text center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, porro minus, quam
+                    cum magnam ut quidem beatae autem amet eius natus dolorum</p>
+            </div>
+
+            <div class="box">
+                <img src="img/committee-room-1022791_640.jpg" alt="">
+                <div class="contact-btn">
+                    <button class="btn">Government Officials</button>
+                </div>
+            
+                <p class="text center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, porro minus, quam
+                    cum magnam ut quidem beatae autem amet eius natus</p>
+            </div>
+
+            <div class="box">
+                <img src="img/chemist-2815640_640.jpg" alt="">
+                <div class="contact-btn">
+                    <button class="btn">Researchers</button>
+                </div>
+                <!-- <h2 class="h-secondary center"> Researchers</h2> -->
+                <p class="text center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, porro minus, quam
+                    cum magnam ut quidem beatae autem amet eius natus</p>
+            </div>
+
+        </div>
+    </section>
+    <!-- <hr> -->
+    <section id="client-section">
+        <h1 class="h-primary center">
+            Our Clients
+        </h1>
+
+        <div id="clients">
+            <div class="client-item">
+                <img src="img/Minimalistic Blue Watercolor Logo.png" alt="Our Clients">
+            </div>
+
+            <!-- <div class="client-item">
+                <img src="img/apple-logo-7425833_1280.png" alt="Our Clients">
+            </div> -->
+
+            <div class="client-item">
+                <img src="img/Tata_Institute_of_Fundamental_Research_logo.png" alt="Our Clients">
+            </div>
+
+            <div class="client-item">
+                <img src="img/Blue Modern Water fresh Mineral Water Logo.png" alt="Our Clients">
+            </div>
+        </div>
+    </section>
+
+    <!-- for and id must be same -->
+
+    <div class="container">
+        <form action="" id="contactForm">
+            <!-- <div class="alert">Your message sent</div> -->
+
+            <h1 class="h-primary center">
+                Contact Us
+            </h1>
+
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+
+            <div class="inputBox">
+                <button type="submit" onclick="validate_contact()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <div class="center">
+            Copyright &copy; www.WaterQualityDetection.com. All Rights Reserved!
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

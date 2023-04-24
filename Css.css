@@ -1,0 +1,403 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variable */
+:root {
+    --navbar-height: 58px;
+}
+
+/* Navigation Bar */
+#navbar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+
+}
+
+#navbar::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 1;
+}
+
+/* Navigation Bar: Logo and Image */
+#logo {
+    margin: 10px 20px;
+}
+
+#logo img {
+    height: 80px;
+    margin: 0px 15px;
+}
+
+/* Navigation Bar: List Styling */
+#navbar ul {
+    display: flex;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+#navbar ul li {
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a {
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+#navbar ul li a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Home Section */
+#home {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+
+#home::before {
+    content: "";
+    background: url('img/water-2347799_1280.jpg') no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+#home h1 {
+    color: white;
+    text-align: center;
+    font-family: cursive;
+}
+
+#home p {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Baloo Thambi 2', cursive;
+
+}
+
+/* Utility Class */
+.h-primary {
+    font-size: 2.5rem;
+    padding: 12px;
+}
+
+.h-secondary {
+    font-size: 1.8rem;
+    padding: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn {
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: brown;
+    color: white;
+    margin: 17px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: burlywood;
+}
+
+.popup {
+    background: rgb(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    height: 750px;
+    width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+
+}
+
+.popup-content img {
+    width: 10%;
+}
+
+.popup-content a {
+    text-decoration: none;
+}
+
+input {
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    padding: 8px;
+    border: 1px solid brown;
+    font-size: medium;
+}
+
+.close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#close_btn {
+    width: 4%;
+}
+
+.center {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* Services Section */
+#services {
+    display: flex;
+    margin: 34px;
+}
+
+#services .box {
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 25px 16px;
+    border-radius: 23px;
+    background-color: rgb(224, 211, 211);
+    margin-top: 0px;
+}
+
+#services .box img {
+    /* height: 100%; */
+    width: 100%;
+    display: block;
+    /* margin: 10px; */
+
+}
+
+.h-primary {
+    font-family: cursive;
+    font-size: 2.8rem;
+    padding: 12px;
+}
+
+.h-secondary {
+    font-family: 'Baloo Thambi 2', cursive;
+    padding: 12px;
+    font-size: 2rem;
+}
+
+#services .box p {
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+/* Clients Section */
+/* #client-section{
+    /* height: 344px; */
+/* position: relative; */
+
+
+#client-section::before {
+    content: "";
+    position: absolute;
+    background: url('img/danube-river-7522608_1920.jpg');
+    width: 100%;
+    height: 37.59%;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+#clients {
+    display: flex;
+    /* width: 10%; */
+    justify-content: center;
+    align-items: center;
+}
+
+#clients img {
+    width: 178px;
+}
+
+.client-item {
+    padding: 0px 60px;
+}
+
+/* Contact Section */
+#contact {
+    position: relative;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: url('img/samsung-605439_1920.jpg');
+}
+
+#contact-box input,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-size: 1.2rem;
+}
+
+#contact-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+#contact-box form {
+    width: 50%;
+}
+
+.contact-btn {
+    display: flex;
+    justify-content: center;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: WHITE;
+    padding: 9px 20px;
+    text-align: center;
+}
+
+#btn_predict1,
+#btn_predict2 {
+    display: none;
+}
+
+.container {
+    width: 90%;
+    height: 75vh;
+    padding: 20px;
+    margin: 60px;
+    border-radius: 20px;
+    box-shadow: 3px 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(224, 211, 211);
+}
+
+.container form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputBox {
+    width: 70%;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.inputBox input[type="text"],
+.inputBox input[type="email"] {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 10px;
+    font-size: 16px;
+    color: #444;
+}
+
+.inputBox textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 10px;
+    font-size: 20px;
+    color: #444;
+}
+
+.inputBox button {
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: brown;
+    color: white;
+    margin: 17px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.inputBox button:hover {
+    background-color: burlywood;
+    transition: all 0.3s ease;
+}
+
+::placeholder {
+    font-size: 16px;
+}
+
+/* .alert{
+    width: 100%;
+    background: rgb(0, 255, 106);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    display: none;
+} */
